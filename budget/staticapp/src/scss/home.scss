@@ -1,0 +1,62 @@
+@import 'main';
+
+body article.container{
+  padding: 40px 60px;
+  height: calc(100vh - 177px);
+  overflow-y: scroll;
+}
+
+
+section.intro{
+  h1{
+    font-size: 36px;
+    margin: 0 0 20px;
+  }
+  p{
+    font-size: 18px;
+  }
+}
+
+
+section.main-boards{
+  width: 100%;
+  margin: 50px auto 40px;
+  .boards{
+    a{
+      color: #333;
+      cursor:pointer;
+    }
+    .board{
+      width:225px;
+      float:left;
+      padding: 20px 20px 15px;
+      border: 1px solid #ddd;
+      @include box_shadow(2);
+      margin: 10px;
+      transition: all .2s;
+      &:hover{
+        @include box_shadow(4);
+      }
+      h4{
+        margin:0 0 10px;
+        font-size: 18px;
+      }
+      .description{
+        p{
+          margin-top: 0px;
+          font-size: 14px;
+        }
+      }
+      .stats{
+        margin-top: 20px;
+        font-weight: normal;
+        font-size: 12px;
+        font-family: monospace;
+        color: grey;
+        text-align: right;
+      }
+
+    }
+
+  }
+}

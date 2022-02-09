@@ -1,0 +1,44 @@
+{%extends 'budget/base.html'%}
+{%load staticfiles%}
+{%load budget_markdown_tags%}
+
+{%block head%}
+<link rel="stylesheet" href="{%static 'budget/css/main-board-list.css'%}">
+{%endblock%}
+
+{%block foot%}
+<script type="text/javascript" src="{%static 'budget/js/main-board-list.js'%}"></script>
+{%endblock%}
+
+{%block breadcrumb%}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      {%block breadcrumb_home%}<a href="/"><i class="fa fa-home" aria-hidden="true"></i></a>{%endblock%}
+    </li>
+    <li class="breadcrumb-item active">Budget</li>
+</ol>
+{%endblock%}
+
+{%block content%}
+<section class="intro">
+{%block intro%}{%endblock%}
+</section>
+<section class="main-boards">
+<h2>Budgets</h2>
+<div class="boards clearfix">
+{%for board in boards%}
+<a href="{%url 'budget-boards-detail' board.slug%}">
+<div class="board">
+  <h4>{{board.name}}</h4>
+  <div class="description">
+    {{board.description|render_markdown|safe}}
+  </div>
+  <div class="stats">{{board.project_count}} projects</div>
+</div>
+</a>
+{%endfor%}
+</div>
+</section>
+
+
+{%endblock%}

@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,700i|Rock+Salt');
+
+$sans: 'Open Sans', sans-serif;
+$handwriting: 'Rock Salt', cursive;
+
+h1,h2,h3,h4,h5,h6{
+  font-family: $sans;
+}
