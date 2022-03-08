@@ -7,8 +7,8 @@ from .models import Board, Column, Project, Tag, Todo, Type
 class TypeAdmin(admin.ModelAdmin):
     form = TypeForm
     list_display = [
-        'name',
-        'swatch',
+        "name",
+        "swatch",
     ]
 
 
@@ -25,18 +25,18 @@ class BoardAdmin(admin.ModelAdmin):
 
 class ProjectAdmin(admin.ModelAdmin):
     list_display = [
-        'slug',
-        'name',
-        'status',
-        'position',
-        'archive',
+        "slug",
+        "name",
+        "status",
+        "position",
+        "archive",
     ]
     ordering = (
-        'status',
-        'status__position',
+        "status",
+        "status__position",
     )
     list_editable = [
-        'archive',
+        "archive",
     ]
 
 
@@ -45,3 +45,4 @@ admin.site.register(Tag)
 admin.site.register(Todo)
 admin.site.register(Type, TypeAdmin)
 admin.site.register(Board, BoardAdmin)
+admin.site.register(Column)

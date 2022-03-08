@@ -1,5 +1,5 @@
-{%extends 'budget/base.html'%}
-{%load staticfiles%}
+{%extends 'base.html'%}
+{%load static %}
 {%load budget_markdown_tags%}
 
 {%block dependency_styles%}
@@ -23,7 +23,7 @@
     <li class="breadcrumb-item">
       {%block breadcrumb_home%}<a href="/"><i class="fa fa-home" aria-hidden="true"></i></a>{%endblock%}
     </li>
-    <li class="breadcrumb-item"><a href="{%url 'budget-boards'%}">Budget</a></li>
+    <li class="breadcrumb-item"><a href="{%url 'budget:budget-boards'%}">Create Board</a></li>
     <li class="breadcrumb-item active">{{board.name}}</li>
 </ol>
 {%endblock%}
