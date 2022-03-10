@@ -156,7 +156,7 @@ class BoardDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(BoardDetail, self).get_context_data(**kwargs)
         context["token"] = getattr(settings, "BUDGET_SECRET_TOKEN")
-        context["root"] = reverse("budget-boards")
+        context["root"] = reverse("budget:budget-boards")
         return context
 
 

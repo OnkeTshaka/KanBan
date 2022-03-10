@@ -1,0 +1,67 @@
+{%extends 'home.html'%}
+{% load static %}
+
+{%block content%}
+<section id="login-page-wrapper">
+	<div id="login-form-wrapper">
+		{% if messages %}
+		{% for message in messages %}
+		{% if message.tags == 'success' %}
+		<div class="alert alert-success" role="alert">
+			<span>{{message}}</span>
+		</div>
+		{% elif message.tags == 'error' %}
+		<div class="alert alert-danger" role="alert">
+			<span>{{message}}</span>
+		</div>
+		{% endif %}
+		{% endfor %}
+		{% endif %}
+
+		<h3 style="text-align: center">Member Login</h3>
+		<hr>
+		<form method="POST">
+			{% csrf_token %}
+			<label>Email</label>
+			<input class="form-control" type="email" name="email">
+			<br>
+			<label>Password</label>
+			<input class="form-control" type="password" name="password">
+			<br>
+			<input class="btn btn-dark btn-sm" type="submit" value="Login">
+		</form>
+
+		<br>
+		<p>Dont have an account? <a href="{% url 'accounts:register' %}" style='color:blue'>Register</a></p>
+		<p>Forgot your password? <a href="{% url 'password_reset' %}" style='color:blue'>Reset</a></p>
+	</div>
+</section>
+
+
+<style>
+	/* Login Page (START) */
+
+	#login-page-wrapper {
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#login-form-wrapper {
+		width: 400px;
+		border: 1px solid #111;
+		background: #fff;
+		padding: 20px;
+		-webkit-box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
+		-moz-box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
+		box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
+	}
+
+	@media screen and (max-width: 400px) {
+		#login-form-wrapper {
+			width: 95%;
+		}
+	}
+</style>
+{%endblock%}

@@ -1,0 +1,62 @@
+{%extends 'home.html'%}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{%block content%}
+<section id="login-page-wrapper">
+	<div id="login-form-wrapper">
+		{% if messages %}
+		{% for message in messages %}
+		{% if message.tags == 'success' %}
+		<div class="alert alert-success" role="alert">
+			<span>{{message}}</span>
+		</div>
+		{% elif message.tags == 'error' %}
+		<div class="alert alert-danger" role="alert">
+			<span>{{message}}</span>
+		</div>
+		{% endif %}
+		{% endfor %}
+		{% endif %}
+
+		<h3 style="text-align: center">Register Account</h3>
+		<hr>
+		<form method="POST" action="?next={{ request.META.HTTP_REFERER }}">
+			{% csrf_token %}
+			{{form|crispy}}
+			<input class="btn btn-dark btn-sm" type="submit" value="Login">
+		</form>
+
+		<br>
+		<p>Already have an account? <a href="{% url 'accounts:login' %}" style="color: blue;">Login</a></p>
+	</div>
+</section>
+
+<style>
+	/* Login Page (START) */
+
+	#login-page-wrapper {
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#login-form-wrapper {
+		border: 1px solid #111;
+		width: 400px;
+		background: #fff;
+		padding: 20px;
+		-webkit-box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
+		-moz-box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
+		box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
+	}
+
+	@media screen and (max-width: 400px) {
+		#login-form-wrapper {
+			width: 95%;
+		}
+	}
+</style>
+{%endblock%}
+

@@ -1,0 +1,24 @@
+{% extends "home.html" %}
+{%load static %}
+
+
+
+
+
+
+
+
+{% block content%}
+
+<div class="container" style="color: #111;">
+	<form method="POST" action="">
+		{% csrf_token %}
+
+		<p>Are you sure you want to delete {{item}}?</p>
+		<a class="btn btn-primary" href="{% url 'budget:boards' %}" style="color: blue;">&laquo Back to Posts</a>
+		<input class="btn btn-danger" type="submit" value="Confirm">
+	</form>
+</div>
+
+
+{% endblock%}
